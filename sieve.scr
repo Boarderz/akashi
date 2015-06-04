@@ -1,0 +1,203 @@
+require ["fileinto", "imapflags", "reject"];
+
+if anyof
+(
+ header :contains "X-ML-Name" "cus-oip-kosugi-dev-all@list.canon.co.jp",
+ header :contains "X-ML-Name" "cus-oip-kosugi-all@list.canon.co.jp",
+ header :contains "X-ML-Name" "d077@list.canon.co.jp"
+)
+{
+ fileinto "Division/KosugiAll";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "b381@list.canon.co.jp",
+ header :contains "X-ML-Name" "con-b381tams@list.canon.co.jp",
+ header :contains "X-ML-Name" "con-oip-sys-9div@list.canon.co.jp"
+)
+{
+ fileinto "Division/Bu";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "2358@list.canon.co.jp"
+)
+{
+ fileinto "Division/Heya";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "con-snk381@list.canon.co.jp"
+)
+{
+ fileinto "Division/SNK";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "sys11-2014-rd@list.canon.co.jp",
+ header :contains "X-ML-Name" "sys11-2015-rd@list.canon.co.jp"
+)
+{
+ fileinto "Division/PGA";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "prj-rainbow@list.canon.co.jp"
+)
+{
+ fileinto "Projects/Rainbow";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "a388-mauve@list.canon.co.jp"
+)
+{
+ fileinto "Projects/Rainbow/Mauve";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "a394-sunglow@list.canon.co.jp"
+)
+{
+ fileinto "Projects/Rainbow/Sunglow";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "prj-aik@list.canon.co.jp"
+)
+{
+ fileinto "Projects/Rainbow/aik";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "cl-soft@list.canon.co.jp"
+)
+{
+ setflag "\\Seen";
+ fileinto "Projects/SysDev/cl-soft";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "prj-a388sys@list.canon.co.jp"
+)
+{
+ fileinto "Projects/SysDev/prj-a388sys";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "prj-a394sys@list.canon.co.jp"
+)
+{
+ fileinto "Projects/SysDev/prj-a394sys";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "prj-e314sys@list.canon.co.jp"
+)
+{
+ fileinto "Projects/SysDev/prj-e314sys";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "prj-nada-bw-soft@list.canon.co.jp"
+)
+{
+ fileinto "Projects/SysDev/prj-nada-bw-soft";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "xpt2-v3@list.canon.co.jp"
+)
+{
+ fileinto "Projects/SysDev/xpt2-v3";
+}
+elsif anyof
+(
+ header :contains "Subject" "Highend個別システム仕様検討会"
+)
+{
+ fileinto "Projects/SysDev/HighendSpec";
+}
+elsif anyof
+(
+ header :contains "From" "sys_wisdom@list.canon.co.jp"
+)
+{
+ fileinto "Projects/SysDev/wisdom";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "org-ac-if@list.canon.co.jp"
+)
+{
+ fileinto "Projects/SysDev/org-ac-if";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "prj-devaccer@list.canon.co.jp"
+)
+{
+ fileinto "Projects/SysDev/prj-devaccer";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "con-oce-aap-product@list.canon.co.jp"
+)
+{
+ fileinto "Projects/Oce/AAP";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "prj-e388@list.canon.co.jp"
+)
+{
+ fileinto "Projects/Engine/A388PQR";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "sup-c800s@list.canon.co.jp"
+)
+{
+ fileinto "Projects/Engine/A388";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "sup-10000_engine@list.canon.co.jp"
+)
+{
+ fileinto "Projects/Engine/A394";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "sup-sunglow_engine@list.canon.co.jp"
+)
+{
+ fileinto "Projects/Rainbow/Sunglow/sup-sunglow";
+}
+elsif anyof
+(
+ header :matches "Subject" "[prob]*A388_4_0*"
+)
+{
+ fileinto "ProB/A388JuneVup";
+}
+elsif anyof
+(
+ header :matches "Subject" "[prob]*A388P_1_0*"
+)
+{
+ fileinto "ProB/A388PQR";
+}
+elsif anyof
+(
+ header :matches "Subject" "[prob]*A394_-1_0*"
+)
+{
+ fileinto "ProB/A394";
+}
+elsif anyof
+(
+ header :contains "X-ML-Name" "senior_imager@list.canon.co.jp"
+)
+{
+ fileinto "Projects/Imaging/senior_imager";
