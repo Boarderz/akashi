@@ -29,7 +29,7 @@
   (let ((up-pair (base64-encode-string
 		  (concat proxy-server-username ":" s))))
     (setq url-http-proxy-basic-auth-storage
-	  `((,proxy-server-string
+	  '((,proxy-server-string
 	     ("Proxy" . ,up-pair))))
     ))
 ;(setq url-proxy-services
@@ -111,9 +111,10 @@
   (defun server-ensure-safe-dir (dir) "Noop" t))
 (unless (server-running-p)
   (server-start))
-(remove-hood
+(remove-hook
  'kill-buffer-query-functions
  'server-kill-buffer-query-function)
+
 
 
 ;;
